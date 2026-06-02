@@ -1,0 +1,14 @@
+# Environment variables
+frontend/.env
+# Python cache
+__pycache__/
+*.pyc
+
+# Model files (optional if huge)
+*.pkl
+
+# VS Code settings
+.vscode/
+
+# System files
+.DS_Store

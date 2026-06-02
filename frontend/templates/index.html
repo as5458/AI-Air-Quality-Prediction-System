@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AI-Powered AQI Forecast</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <section class="hero">
+        <h1>
+            AI-Powered Air Quality <br>
+            <span>Forecasting & Analysis</span>
+        </h1>
+
+        <p>
+            Search a city to view AQI forecast and upcoming trends.
+        </p>
+    </section>
+
+
+    <section class="dashboard">
+
+        <div class="card search-card">
+
+            <h3>Search City</h3>
+
+            <p class="muted">
+                Enter a city name to fetch AQI data
+            </p>
+
+            <input type="text"
+                   id="cityInput"
+                   placeholder="e.g. Chennai">
+
+            <button onclick="getAQI()">
+                🔍 Search AQI
+            </button>
+
+        </div>
+
+
+        <div class="card highlight">
+
+            <small>CURRENT AQI</small>
+
+            <h2 id="currentAQI">--</h2>
+
+            <div class="circle"
+                 id="aqiCircle">
+                 --
+            </div>
+
+            <p id="aqiCategory"
+               class="muted">
+               --
+            </p>
+
+        </div>
+
+
+        <div class="card graph-card">
+
+            <h3>AQI Forecast (Next 5 Days)</h3>
+
+            <p class="muted">
+                Daily ML-based prediction
+            </p>
+
+            <div class="graph-box">
+                <canvas id="aqiChart"></canvas>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="dashboard secondary">
+
+        <div class="card">
+
+            <h3>
+                Future Pollutant Concentrations
+            </h3>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Day</th>
+                        <th>PM2.5</th>
+                        <th>PM10</th>
+                        <th>NO₂</th>
+                        <th>CO</th>
+                        <th>O₃</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="pollutantBody">
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <script src="{{ url_for('static',
+    filename='script.js') }}"></script>
+
+</body>
+</html>
